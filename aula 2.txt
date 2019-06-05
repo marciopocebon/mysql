@@ -1,0 +1,96 @@
+Banco de dados:
+
+Preparação do ambiente de desenvolvimento.
+Video aulas de apoio:
+https://youtu.be/A_37jwPdH-Q
+https://youtu.be/5Ge96agotPU
+
+Passo 1)
+
+Instalação do debian (virtual box)
+
+apt-get update
+apt-get install vim
+____________________________________________________
+Passo 2)
+
+Instalação do MySQL da ORACLE
+
+Fazer o download do pacote de instalação do repositório:
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
+
+Instalar o pacote:
+dpkg -i nome do pacote
+
+*** escolha a versão 5.7 do banco de dados (5.7 mais popular)
+
+apt-get update
+apt-get install mysql-server
+
+*** atribuir uma senha ao root(administrador do banco de dados)
+
+systemctl status mysql
+
+___________________________________________________
+Passo 3)
+
+Reforçar a segurança executando o script:
+
+mysql_secure_installation
+
+___________________________________________________
+Passo 4)
+
+Criar um usuário para acesso remoto ao(s) banco(s) de dados
+
+mysql -u root -p (acessar o console MySQL)
+<ctrl><L> (limpar a tela)
+show databases; (exibir bancos de dados)
+create database wordpress; (criar um novo banco de dados)
+drop database nome_do_banco; (remover um banco de dados)
+select user,host from mysql.user; (usuários e hosts)
+grant all privileges on *.* to admin@'%' identified by '123@senac';
+flush privileges; (aplicar as alterações)
+<ctrl><d> Sair do console mysql
+
+_______________________________________________
+Passo 5)
+
+Liberar o acesso remoto ao servidor:
+
+cd /etc/mysql/mysql.conf.d
+vim mysqld.cnf
+
+<esc><:>
+:set number
+
+28 bind-address  = *
+
+<esc><:>
+:wq
+
+systemctl restart mysql
+
+Passo 6)
+
+Configurar um IP fixo no servidor
+
+cd /etc/network
+
+iface enp0s3 inet static
+address 192.168.0.100
+netmask 255.255.255.0
+gateway 192.168.0.1
+network 192.168.0.0
+broadcast 192.168.0.255
+dns-nameservers 8.8.8.8 8.8.4.4
+<esc><:>
+:wq
+*** mudar em configurações da máquina virtual a rede para 
+     o modo bridge e reiniciar o servidor
+
+Da máquina real pingar o servidor de banco de dados
+Do servidor de banco de dados pingar um site externo
+
+Passo 7)
+Instalar o workbench e criar um acesso ao servidor
