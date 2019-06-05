@@ -1,1 +1,37 @@
 Introdução ao banco de dados
+case 1: 
+Agenda de contatos
+
+Passo 1: Modelagem dos dados
+Análise de requisitos do sistema
+
+id (chave primária)
+nome (not null)
+fone (not null)
+email
+
+Passo 2: Criação do banco de dados
+worbench
+<ctrl><enter>  (executar o código query)
+
+sql (struture query language)
+
+Tipos de dados da linguagem sql
+int (números inteiros)
+char (String com "largura" fixa)
+varchar (String com "largura" variável)
+nvarchar (varchar + caracteres unicode)
+
+CRUD (Create Read Update Delete)
+___________________________________________
+Para remover uma tabela e todos os registros:
+drop table nome_da_tabela;
+
+Para remover um banco:
+drop database nome_do_banco;
+
+.......................................................................
+https://www.apachefriends.org/pt_br/index.html
+http://www.wampserver.com/en/
+https://www.draw.io/
+.......................................................................
