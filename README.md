@@ -1,3 +1,3 @@
 # MySQL
-<h2>Fundamentos do banco de dados MySQL</h2>
-<img src = "https://github.com/professorjosedeassis/mysql/blob/master/imagens/database-schema-1895779_960_720.png">
+## Fundamentos do banco de dados MySQL
+![mysql](https://github.com/professorjosedeassis/mysql/blob/master/imagens/mysql-backup.png)
